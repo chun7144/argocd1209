@@ -1,0 +1,14 @@
+mysql:
+  image: mysql:8.0
+  rootPassword: password
+  database: mydatabase
+  servicePort: 3306
+  initSql: |-
+    ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
+    FLUSH PRIVILEGES;
+
+web:
+  image: wintari0179/my-cooking-web-2025
+  servicePort: 3000
+  nodePort: 30001
+
